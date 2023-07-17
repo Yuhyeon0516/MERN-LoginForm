@@ -3,8 +3,12 @@ import { userSignInController, userSignUpController } from "../controllers/userC
 
 const router = Router();
 
-router.post("/signup", (req, res) => userSignUpController);
+router.post("/signup", (req, res) => {
+  userSignUpController(req, res);
+});
 
-router.post("/signin", (req, res) => userSignInController);
+router.post("/signin", (req, res) => {
+  userSignInController(req, res);
+});
 
 export default router;
