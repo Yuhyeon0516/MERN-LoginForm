@@ -3,8 +3,14 @@ import mongoose from "mongoose";
 import express from "express";
 import userRoutes from "./routes/userRoutes.js";
 import boardRoutes from "./routes/boardRoutes.js";
+import cors from "cors";
 
 const server = express();
+const corsOption = {
+  origin: true,
+  credential: true,
+};
+server.use(cors(corsOption));
 server.use(express.json());
 server.use("/api/user", userRoutes);
 server.use("/api/board", boardRoutes);
