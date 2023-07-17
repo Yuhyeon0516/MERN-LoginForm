@@ -35,5 +35,5 @@ export const userSignUpController = async (req, res) => {
   user.password = await bcrypt.hash(password, salt);
   await user.save();
 
-  res.status(200).json({ successes: [{ message: "User Sign Up Successfully" }] });
+  res.status(200).json({ successes: [{ message: "회원 가입이 완료되었습니다. 자동으로 로그인이 됩니다." }], user });
 };

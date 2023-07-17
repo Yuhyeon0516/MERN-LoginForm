@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form, Modal, Container } from "react-bootstrap";
 
-const SignInModal = ({ show, onHide }) => {
+const SignInModal = ({ show, onHide, setLogined }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,6 +15,34 @@ const SignInModal = ({ show, onHide }) => {
     } else {
       console.log("Not a target");
     }
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+
+    axios
+      .post(
+        "/api/user/signin",
+        {
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        setEmail("");
+        setPassword("");
+        onHide();
+        setLogined();
+
+        localStorage.clear();
+        localStorage.setItem("id", res.data.user._id);
+      })
+      .catch((error) => {
+        alert(error.response.data.errors[0].message);
+      });
   };
 
   return (
@@ -34,7 +63,7 @@ const SignInModal = ({ show, onHide }) => {
               <Form.Control id="password" value={password} onChange={onChange} type="password" placeholder="Password" />
             </Form.Group>
             <div className="d-grid gap-2">
-              <Button size="lg" variant="info" type="button" className="my-3">
+              <Button size="lg" variant="info" onClick={onClick} type="submit" className="my-3">
                 Sign In
               </Button>
             </div>

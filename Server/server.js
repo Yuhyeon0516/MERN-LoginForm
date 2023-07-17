@@ -8,7 +8,7 @@ import cors from "cors";
 const server = express();
 const corsOption = {
   origin: true,
-  credential: true,
+  credentials: true,
 };
 server.use(cors(corsOption));
 server.use(express.json());

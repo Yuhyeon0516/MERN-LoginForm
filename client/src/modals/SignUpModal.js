@@ -4,7 +4,7 @@ import axios from "axios";
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "http://localhost:4000";
 
-const SignUpModal = ({ show, onHide }) => {
+const SignUpModal = ({ show, onHide, setLogined }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,29 +22,32 @@ const SignUpModal = ({ show, onHide }) => {
     }
   };
 
-  const onSignUp = () => {
+  const onSignUp = (e) => {
+    e.preventDefault();
+    setEmail("");
+    setName("");
+    setPassword("");
+    onHide();
     axios
       .post(
-        "api/user/signup",
+        "/api/user/signup",
         {
           name,
           email,
           password,
         },
         {
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Credentials": "true",
-            withCredentials: "true",
-          },
+          withCredentials: true,
         }
       )
       .then((res) => {
-        alert(res.json());
+        setLogined();
+        localStorage.clear();
+        localStorage.setItem("id", res.data.user._id);
+        alert(res.data.successes[0].message);
       })
       .catch((error) => {
-        alert(error.message);
+        alert(error.response.data.errors[0].message);
       });
   };
 
