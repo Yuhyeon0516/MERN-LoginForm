@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
 const boardSchema = new Schema({
+  writer: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -18,6 +22,6 @@ const boardSchema = new Schema({
   },
 });
 
-const boardModel = mongoose.model("Board", userSchema);
+const boardModel = mongoose.model("Board", boardSchema);
 
 export default boardModel;

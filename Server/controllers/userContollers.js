@@ -7,17 +7,17 @@ export const userSignInController = async (req, res) => {
   try {
     let user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ errors: [{ message: "User is not exist" }] });
+      return res.status(400).json({ errors: [{ message: "가입이 되지않은 이메일입니다." }] });
     }
 
     const isPasswrodMatch = await bcrypt.compare(password, user.password);
     if (!isPasswrodMatch) {
-      return res.status(400).json({ errors: [{ message: "Passwrod is not match" }] });
+      return res.status(400).json({ errors: [{ message: "패스워드가 일치하지 않습니다." }] });
     }
 
     res.status(200).json({ user: user });
   } catch (error) {
-    res.status(500).send("Server Error");
+    res.status(500).send(`Server Error: ${error.message}`);
   }
 };
 
@@ -26,7 +26,7 @@ export const userSignUpController = async (req, res) => {
   let user = await User.findOne({ email });
 
   if (user) {
-    return res.status(400).json({ errors: [{ message: "User is already exists" }] });
+    return res.status(400).json({ errors: [{ message: "이미 가입 된 이메일입니다." }] });
   }
 
   user = new User({ name, email, password });

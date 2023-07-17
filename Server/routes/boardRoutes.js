@@ -5,7 +5,8 @@ import {
   boardListController,
   boardUpdateController,
   boardWriteController,
-} from "../controllers/boardControllers";
+  myBoardListController,
+} from "../controllers/boardControllers.js";
 
 const router = Router();
 
@@ -30,8 +31,13 @@ router.get("/detail", (req, res) => {
 });
 
 // 게시물 전체 가져오기
-router.get("/getBoardList", (req, res) => {
+router.get("/BoardList", (req, res) => {
   boardListController(req, res);
+});
+
+// 나의 게시물 전체 가져오기
+router.get("/MyBoardList", (req, res) => {
+  myBoardListController(req, res);
 });
 
 export default router;
