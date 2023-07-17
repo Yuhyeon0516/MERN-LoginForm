@@ -13,7 +13,7 @@ const Header = () => {
       <header>
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand>MERN Login Form</Navbar.Brand>
+            <Navbar.Brand>Yuhyeon's DEV Diary</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">

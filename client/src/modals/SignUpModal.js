@@ -1,7 +1,5 @@
 import React from "react";
 import { Button, Form, Modal, Container } from "react-bootstrap";
-import { GoogleLogin } from "react-google-login";
-import HorizontalLine from "../components/HorizontalLine";
 
 const SignUpModal = ({ show, onHide }) => {
   return (
@@ -36,18 +34,6 @@ const SignUpModal = ({ show, onHide }) => {
                 Sign Up
               </Button>
             </div>
-            <HorizontalLine text={"OR"} />
-            <GoogleLogin
-              render={(renderProps) => {
-                return (
-                  <div className="d-grid gap-2">
-                    <Button onClick={renderProps.onClick} disabled={renderProps.disabled} style={{ backgroundColor: "#176BEF", borderColor: "176BEF" }}>
-                      <i className="fab fa-google"></i>&nbsp;Sign Up with Google
-                    </Button>
-                  </div>
-                );
-              }}
-            />
           </Form>
         </Modal.Body>
       </Container>
