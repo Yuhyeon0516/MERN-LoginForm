@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Button, Form, Modal, Container } from "react-bootstrap";
+import axios from "axios";
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "http://localhost:4000";
 
 const SignUpModal = ({ show, onHide }) => {
   const [name, setName] = useState("");
@@ -20,7 +23,29 @@ const SignUpModal = ({ show, onHide }) => {
   };
 
   const onSignUp = () => {
-    console.log("Sign Up");
+    axios
+      .post(
+        "api/user/signup",
+        {
+          name,
+          email,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": "true",
+            withCredentials: "true",
+          },
+        }
+      )
+      .then((res) => {
+        alert(res.json());
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (
@@ -46,7 +71,7 @@ const SignUpModal = ({ show, onHide }) => {
               <Form.Control id="password" value={password} onChange={onChange} type="password" placeholder="Password" />
             </Form.Group>
             <div className="d-grid gap-2">
-              <Button onClick={onSignUp} size="lg" variant="info" type="button" className="my-3">
+              <Button onClick={onSignUp} size="lg" variant="info" type="submit" className="my-3">
                 Sign Up
               </Button>
             </div>
