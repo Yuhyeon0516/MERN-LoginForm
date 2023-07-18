@@ -3,31 +3,26 @@ import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import SignUpModal from "../modals/SignUpModal";
 import SignInModal from "../modals/SignInModal";
 
-const Header = () => {
+const Header = ({ isLogined, isLoginedTrue, isLoginedFalse }) => {
   const [signUpModalOn, setSignUpModalOn] = useState(false);
   const [signInModalOn, setSignInModalOn] = useState(false);
-  const [isLogined, setIsLogined] = useState(false);
-
-  const isLoginedToggle = () => {
-    setIsLogined((prev) => !prev);
-  };
 
   const onSignOut = () => {
-    isLoginedToggle();
+    isLoginedFalse();
     localStorage.clear();
   };
 
   useEffect(() => {
     const id = localStorage.getItem("id");
     if (id) {
-      setIsLogined(true);
+      isLoginedTrue();
     }
-  }, []);
+  }, [isLoginedTrue]);
 
   return (
     <>
-      <SignUpModal show={signUpModalOn} onHide={() => setSignUpModalOn(false)} setLogined={isLoginedToggle} />
-      <SignInModal show={signInModalOn} onHide={() => setSignInModalOn(false)} setLogined={isLoginedToggle} />
+      <SignUpModal show={signUpModalOn} onHide={() => setSignUpModalOn(false)} setLogined={isLoginedTrue} />
+      <SignInModal show={signInModalOn} onHide={() => setSignInModalOn(false)} setLogined={isLoginedTrue} />
       <header>
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
