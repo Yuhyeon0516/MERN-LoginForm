@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Detail = () => {
   const { id } = useParams();
+  const userId = localStorage.getItem("id");
   const [board, setBoard] = useState({});
   const navigate = useNavigate();
   const deleteTapped = () => {
@@ -57,14 +58,17 @@ const Detail = () => {
           </tr>
         </tbody>
       </Table>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Link to={`/write?id=${id}`}>
-          <Button variant="primary">수정</Button>
-        </Link>
-        <Button variant="secondary" onClick={deleteTapped}>
-          삭제
-        </Button>
-      </div>
+
+      {userId === board.writer && (
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Link to={`/write?id=${id}`}>
+            <Button variant="primary">수정</Button>
+          </Link>
+          <Button variant="secondary" onClick={deleteTapped}>
+            삭제
+          </Button>
+        </div>
+      )}
     </Container>
   );
 };
