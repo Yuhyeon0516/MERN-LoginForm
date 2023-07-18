@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import SignUpModal from "../modals/SignUpModal";
 import SignInModal from "../modals/SignInModal";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ isLogined, isLoginedTrue, isLoginedFalse }) => {
   const [signUpModalOn, setSignUpModalOn] = useState(false);
   const [signInModalOn, setSignInModalOn] = useState(false);
+  const navigate = useNavigate();
 
   const onSignOut = () => {
     isLoginedFalse();
@@ -26,7 +28,9 @@ const Header = ({ isLogined, isLoginedTrue, isLoginedFalse }) => {
       <header>
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand>Yuhyeon's Diary</Navbar.Brand>
+            <Navbar.Brand style={{ cursor: "pointer" }} onClick={() => navigate("/")}>
+              Yuhyeon's Diary
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
