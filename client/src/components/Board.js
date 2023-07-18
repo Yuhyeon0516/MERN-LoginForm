@@ -60,7 +60,7 @@ const Board = ({ isLogined }) => {
           </div>
         </div>
       ) : (
-        <h1 style={{ textAlign: "center", alignItems: "center" }}>
+        <h1 style={{ textAlign: "center", alignItems: "center", marginTop: 30 }}>
           어서오세요. Yuhyeon's Diary 입니다.
           <br />
           로그인을 하시면 게시물 확인이 가능합니다.
