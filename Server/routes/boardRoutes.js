@@ -11,7 +11,7 @@ import {
 const router = Router();
 
 // 게시물 삭제
-router.delete("/delete", (req, res) => {
+router.post("/delete", (req, res) => {
   boardDeleteController(req, res);
 });
 
