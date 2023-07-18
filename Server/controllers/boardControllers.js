@@ -11,11 +11,13 @@ export const boardDeleteController = async (req, res) => {
 export const boardUpdateController = async (req, res) => {
   try {
     const { _id, title, content } = req.body;
-    await Board.updateOne({
-      _id,
-      title,
-      content,
-    });
+    await Board.updateOne(
+      { _id },
+      {
+        title,
+        content,
+      }
+    );
     res.status(200).json({ successes: [{ message: "게시물을 수정하였습니다." }] });
   } catch (error) {
     return res.status(400).json({ errors: [{ message: error.message }] });
