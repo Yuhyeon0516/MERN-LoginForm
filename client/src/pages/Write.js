@@ -1,39 +1,85 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Button, Container, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 const Write = () => {
   const [content, setContent] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const id = searchParams.get("id");
   const [title, setTitle] = useState("");
   const navigate = useNavigate();
   const changeTitle = (e) => {
     setTitle(e.target.value);
   };
   const saveBtnTapped = () => {
-    const writer = localStorage.getItem("id");
-    axios
-      .post(
-        "/api/board/write",
-        {
-          writer,
-          title,
-          content,
-        },
-        {
-          withCredentials: true,
-        }
-      )
-      .then((res) => {
-        alert(res.data.successes[0].message);
-        navigate("/");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (id) {
+      axios
+        .post(
+          "/api/board/update",
+          { _id: id, title, content },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          alert(res.data.successes[0].message);
+        })
+        .catch((err) => {
+          alert("잘못된 접근입니다.");
+        })
+        .finally(() => {
+          navigate("/");
+        });
+    } else {
+      const writer = localStorage.getItem("id");
+      axios
+        .post(
+          "/api/board/write",
+          {
+            writer,
+            title,
+            content,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          alert(res.data.successes[0].message);
+        })
+        .catch((err) => {
+          alert("잘못된 접근입니다.");
+        })
+        .finally(() => {
+          navigate("/");
+        });
+    }
   };
+
+  useEffect(() => {
+    if (id) {
+      axios
+        .post(
+          "/api/board/detail",
+          {
+            _id: id,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          const board = res.data.board;
+          setTitle(board.title);
+          setContent(board.content);
+        })
+        .catch((error) => {
+          alert("잘못된 접근입니다.");
+          navigate("/");
+        });
+    }
+  }, [id, navigate]);
 
   return (
     <Container>

@@ -8,9 +8,18 @@ const Detail = () => {
   const [board, setBoard] = useState({});
   const navigate = useNavigate();
   const deleteTapped = () => {
-    // server 부 delete에서 post로 변경 필요
+    axios
+      .post("/api/board/delete", { id }, { withCredentials: true })
+      .then((res) => {
+        alert(res.data.successes[0].message);
+      })
+      .catch((error) => {
+        alert("잘못된 접근입니다.");
+      })
+      .finally(() => {
+        navigate("/");
+      });
   };
-  const modifyTapped = () => {};
 
   useEffect(() => {
     axios
@@ -49,10 +58,12 @@ const Detail = () => {
         </tbody>
       </Table>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Link to="/">
+        <Link to={`/write?id=${id}`}>
           <Button variant="primary">수정</Button>
         </Link>
-        <Button variant="secondary">삭제</Button>
+        <Button variant="secondary" onClick={deleteTapped}>
+          삭제
+        </Button>
       </div>
     </Container>
   );
