@@ -26,7 +26,7 @@ router.post("/write", (req, res) => {
 });
 
 // 게시물 하나 가져오기
-router.get("/detail", (req, res) => {
+router.post("/detail", (req, res) => {
   boardDetailController(req, res);
 });
 
@@ -36,7 +36,7 @@ router.get("/BoardList", (req, res) => {
 });
 
 // 나의 게시물 전체 가져오기
-router.get("/MyBoardList", (req, res) => {
+router.post("/MyBoardList", (req, res) => {
   myBoardListController(req, res);
 });
 
