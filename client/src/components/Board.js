@@ -19,14 +19,16 @@ const Board = ({ isLogined }) => {
         setboardList([...res.data.board].reverse());
       });
     } else {
-      //server부 Post로 변경 필요함
-      axios.get("/api/board/MyBoardList", { writer: localStorage.getItem("id") }, { withCredentials: true }).then((res) => {
-        if (res.status === 200) {
+      axios
+        .post("/api/board/MyBoardList", { writer: localStorage.getItem("id") }, { withCredentials: true })
+        .then((res) => {
           setboardList([...res.data.board].reverse());
-        }
-      });
+          setViewMyBoard((prev) => !prev);
+        })
+        .catch((error) => {
+          alert(error.response.data.errors[0].message);
+        });
     }
-    setViewMyBoard((prev) => !prev);
   };
 
   return (
