@@ -1,11 +1,15 @@
-import { Container } from "react-bootstrap";
-import Layout from "./layouts/Layout";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 
 function App() {
   return (
-    <Layout>
-      <Container style={{ minHeight: "75vh" }}>App</Container>
-    </Layout>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
+    </>
   );
 }
 
