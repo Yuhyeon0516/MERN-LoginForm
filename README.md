@@ -526,4 +526,4 @@ It's the result of all the contents I explained above.<br/>
 ## Deploy
 
 I deployed this apllication with cloudtype.<br/>
-<a herf="https://web-mern-mydiary-client-eg4e2alk8dahnp.sel4.cloudtype.app">Link</a>
+[Link](https://web-mern-mydiary-client-eg4e2alk8dahnp.sel4.cloudtype.app)
