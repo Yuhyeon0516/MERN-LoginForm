@@ -5,7 +5,6 @@
 MERN Stack is a combination of MongoDB, Express.js, React and Node.js, forming a full-stack JavaScript framework.
 
 ---
-
 ## Client
 
 Client is organizing with React.
@@ -40,22 +39,26 @@ I used react-router-dom to organize three pages: Home, Detail and Write.
     Header is organizing with application name, signup button, signin button and signout button.
 
     When you are not logged in, you can see the application name, signup button, and signin button.<br/>
-    (header1)<br/>
+    ![image](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/d97001c7-7213-4c30-b694-6f90637aeb51)
+
     but when you are logged in, you can see the application name, signout button.<br/>
-    (header2)
+    ![image](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/8cb73b5f-84b0-4527-9952-1be9fc5c1ab4)
 
     When you click the apllication name, page move to Homepage.
 
     When you click the signup button, signup modal will appear in the center of the page.<br/>
-    (Signup modal)
+    ![image](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/40206f81-8978-4490-9750-aaee9a9a1bef)
+
 
     When you click the signin button, signin modal will appear in the center of the page.<br/>
-    (Signin modal)
+    ![image](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/7d187cd9-7e7f-4c7e-987d-b25c7f7e771e)
+
 
   - Footer
 
     Footer indicate year, application name and copyright.<br/>
-    (Footer)
+    ![Footer](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/f9fcd8d9-74af-48d7-80d1-49f7c1fff0d4)
+
 
 - Homepage
 
@@ -65,14 +68,16 @@ I used react-router-dom to organize three pages: Home, Detail and Write.
 
     Board is organizing with Write Button, My Post(All Post) and Table(Mentions)
 
-    When you are not logged in, you can only see the mentions.<br/>
-    (Board1)
+    When you are not logged in, you can only see the mentions.
+    ![Board1](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/4b0e5dbe-ba8d-4efc-91fa-3f32c839a5d8)
+
 
     When you are logged in, you can see the Board.<br/>
-    (Board2)
+    ![Board2](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/369a2bcf-2b8c-48a9-b2c4-f09b4ce71aa9)
+
 
     You can choose whether you want to see only your post or all of post through My Post(All Post) button.<br/>
-    (Board3)
+    ![Board3](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/46423570-d864-43a2-9077-b951a330b7e3)
 
     When you clicked post's date or title, page move to Detailpage.
 
@@ -81,30 +86,32 @@ I used react-router-dom to organize three pages: Home, Detail and Write.
 - Detailpage
 
   Detailpage is organizing with Header, Footer, post title, post content, modify button and delete button.<br/>
-  (Detail1)
+  ![Detail1](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/d7157932-a179-4583-9176-e0138661cef0)
+
 
   If it is not my post, you can't see modify button and delete button.<br/>
-  (Detail2)
+  ![Detail2](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/ba9740ac-9344-4d58-b0c5-e83ceb031951)
+
 
   When you clicked modify button, page move with the existing title and content entered.<br/>
-  (Detail3)
+  ![Detail3](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/a19d1542-fd97-4d89-977f-0f1f0f3a411e)
 
   When you clicked delete button, this post delete and page move to Homepage.<br/>
-  (Detail4)
+  ![Detail4](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/35b8277d-7ffc-491f-830d-ad05fa59e891)
 
 - Writepage
 
   Writepage is organize with Header, Footer, title textfield, content textfield and save button.<br/>
-  (Write1)
+  ![Write1](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/381e3ead-3e9b-4117-95ee-1a7b6e09bdfe)
 
   When you clicked save button but title or content textfield is empty, alert is raised.<br/>
-  (Write2, 3)
+  ![Write2](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/d6030f6b-a8e8-4bc1-aac9-b1338082bd7d)
+  ![Write3](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/8f1d8daa-d34d-43c5-9f10-52f41e79ee10)
 
   If title and content textfield are not empty, press save button to upload the post.<br/>
-  (Write4)
+  ![Write4](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/ebc173d2-11f5-45f1-a6e0-f96b8c732ef7)
 
 ---
-
 ## Server
 
 Server is organizing with MongoDB, Express.js and Node.js.
@@ -455,75 +462,60 @@ User and board consists of a model, routes, and controllers.
       ```
 
 ---
-
 ## API Communication Scenarios
 
 - When you successed in registering a member.
-
-  (API1)
+  ![API1](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/323e54d0-61a6-4e3c-accd-ff4dc0a25958)
 
 - When you tried in registering a member but already registered.
-
-  (API2)
+  ![API2](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/fc556e37-c5af-436b-9f9a-b23cfefa96b8)
 
 - When attempting to login, maching email and password.
-
-  (API3)
+  ![API3](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/940fa5de-4dcc-45e7-a30d-f6c22381e129)
 
 - When attempting to login, email matches but password does not match.
-
-  (API4)
+  ![API4](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/32ce99f7-0184-455d-9daa-6f55acf2177d)
 
 - Unregisted email when attempting to login.
-
-  (API5)
+  ![API5](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/a30e5e19-cbc4-44d4-b8f2-782c17f7ee6a)
 
 - When your post uploading is successed.
-
-  (API6)
+  ![API6](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/4e98f0cf-5959-4669-9913-9f130ddc7722)
 
 - When your post deleting is successed.
-
-  (API7)
+  ![API7](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/cd25cafc-0835-446d-96ab-aed79cdafc68)
 
 - When your post modifying is successed.
-
-  (API8)
+  ![API8](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/363b3e89-cd9d-4f59-9d5e-a1242eab0030)
 
 - When getting a single post information to be used on the detail page.
-
-  (API9)
+  ![API9](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/a9dfa2b7-24ce-4f13-aaf6-f8a782457036)
 
 - When getting all post information to be used on the home page.
-
-  (API10)
+  ![API10](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/b7a5662a-d710-4fe9-9baa-6e9f4ecd6273)
 
 - When getting your post information.
-
-  (API11)
+  ![API11](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/7242466a-8712-490c-9f4c-e2cc7a683e4f)
 
 - When getting your post information, but it's not there.
-
-  (API12)
+  ![API12](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/e7393e7e-d764-4d84-86a7-e04fc5aeb3b6)
 
 - API Tested.
 
   Before configuring API communication in client,
 
   I tested API communication with Postman application in advance.
+  ![API Tested](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/2f566123-af76-4000-9cf4-e616e780a4c6)
 
-  (API Tested)
 
 ---
-
 ## Result
 
 It's the result of all the contents I explained above.<br/>
-(Result)
+![Result](https://github.com/Yuhyeon0516/MERN-MyDiary/assets/120432007/ab54fc39-9206-4fa7-9226-9ec045856fe0)
 
 ---
-
 ## Deploy
 
 I deployed this apllication with cloudtype.<br/>
-<a herf="https://web-mern-mydiary-client-eg4e2alk8dahnp.sel4.cloudtype.app">Link</a>
+[Link](https://web-mern-mydiary-client-eg4e2alk8dahnp.sel4.cloudtype.app)
